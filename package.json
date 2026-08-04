@@ -1,0 +1,28 @@
+{
+  "name": "sealbound",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "pnpm -r test",
+    "test:server": "pnpm --filter @shinobi/server test",
+    "test:engine": "pnpm --filter @shinobi/engine test",
+    "lint": "node tools/lint/engine-purity.mjs",
+    "validate:content": "tsx packages/content/src/validate.ts",
+    "sim": "tsx tools/balance/src/sim.ts",
+    "parity": "tsx tools/balance/src/parity.ts",
+    "tune": "tsx tools/balance/src/tune.ts",
+    "qa": "tsx tools/qa/exploit-hunt.ts",
+    "drift": "tsx tools/qa/drift-check.ts",
+    "dev": "pnpm --parallel --filter @shinobi/server --filter @shinobi/web dev",
+    "dev:server": "pnpm --filter @shinobi/server dev",
+    "dev:web": "pnpm --filter @shinobi/web dev"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "@vitest/coverage-v8": "^2.1.8",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}
