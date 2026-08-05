@@ -9,10 +9,15 @@
     "lint": "node tools/lint/engine-purity.mjs",
     "validate:content": "tsx packages/content/src/validate.ts",
     "sim": "tsx tools/balance/src/sim.ts",
+    "sim:economy": "tsx tools/balance/src/economy-sim.ts",
     "parity": "tsx tools/balance/src/parity.ts",
     "tune": "tsx tools/balance/src/tune.ts",
     "qa": "tsx tools/qa/exploit-hunt.ts",
+    "qa:meta": "tsx tools/qa/meta-exploit-hunt.ts",
     "drift": "tsx tools/qa/drift-check.ts",
+    "check": "pnpm lint && pnpm validate:content && pnpm test && pnpm drift && pnpm qa && pnpm qa:meta",
+    "build": "pnpm --filter @shinobi/web build",
+    "start": "node --import tsx apps/server/src/index.ts",
     "dev": "pnpm --parallel --filter @shinobi/server --filter @shinobi/web dev",
     "dev:server": "pnpm --filter @shinobi/server dev",
     "dev:web": "pnpm --filter @shinobi/web dev"
@@ -25,16 +30,13 @@
     "typescript": "^5.6.3",
     "vitest": "^2.1.8"
   },
-  "version": "1.0.0",
-  "description": "Turn-based, server-authoritative PvP battler. The governing design direction is `docs/DESIGN-DIRECTION.txt`; `docs/OVERRIDES.md` records what it changed and why. `CLAUDE.md` holds the engineering invariants.",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "zod": "^4.4.3"
+  "license": "MIT",
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=10"
   },
-  "allowScripts": {
-    "esbuild@0.28.1": true
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zekkcc/sealbound.git"
   }
 }
